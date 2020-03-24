@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uruburetama Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main id="app">
+        <h1 class="title">Uruburetama Delivery</h1>
+        <div class="container">
+            <article class="card" v-for="item in items">
+                <h2 class="card__title">{{item.name}}</h2>
+                <ul class="contact-list">
+                    <li class="contact-list__button">
+                        <a :href="`tel:${item.phone}`">
+                            <svg class="icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#phone"></use>
+                            </svg>
+                            <span>Celular</span>
+                        </a>
+                    </li>
+                    <li class="contact-list__button" v-if="item.whatsapp">
+                        <a :href="`https://api.whatsapp.com/send?phone=${item.whatsapp}`">
+                            <svg class="icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#whatsapp"></use>
+                            </svg>
+                            <span>Whatsapp</span>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                items: [
+                    {
+                        id: 1,
+                        name: "Luiz Pastel",
+                        phone: "85999525379",
+                        whatsapp: "5585999525379"
+                    },
+                    {
+                        id: 2,
+                        name: "Louro Jucá",
+                        phone: "85996414697",
+                        whatsapp: "5585996414697"
+                    },
+                    {
+                        id: 3,
+                        name: "Mercadinho Gomes",
+                        phone: "85999051584"
+                    },
+                    {
+                        id: 4,
+                        name: "Águia da Serra",
+                        phone: "85996877186"
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

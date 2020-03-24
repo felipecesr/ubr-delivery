@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --icon-size: 20px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 24px;
+}
+
+.card {
+  background-color: #eee;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card__title {
+  color: #333;
+  padding: 16px 0;
+}
+
+.contact-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-list__button {
+  flex: 1;
+}
+
+.contact-list__button a {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-list__button span {
+  display: block;
+}
+
+.contact-list__button svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-bottom: 8px;
+}
