@@ -77,3 +77,9 @@ a {
   height: var(--icon-size);
   margin-bottom: 8px;
 }
+
+.section__title {
+  line-height: 1.8;
+  margin-bottom: 16px;
+  border-bottom: 2px dashed var(--primary-color);
+}

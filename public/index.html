@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -12,27 +12,36 @@
     <main id="app">
         <h1 class="title">Uruburetama Delivery</h1>
         <div class="container">
-            <article class="card" v-for="item in items">
-                <h2 class="card__title">{{item.name}}</h2>
-                <ul class="contact-list">
-                    <li class="contact-list__button">
-                        <a :href="`tel:${item.phone}`">
-                            <svg class="icon">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#phone"></use>
-                            </svg>
-                            <span>Celular</span>
-                        </a>
-                    </li>
-                    <li class="contact-list__button" v-if="item.whatsapp">
-                        <a :href="`https://api.whatsapp.com/send?phone=${item.whatsapp}`">
-                            <svg class="icon">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons.svg#whatsapp"></use>
-                            </svg>
-                            <span>Whatsapp</span>
-                        </a>
-                    </li>
-                </ul>
-            </article>
+            <section class="section">
+                <h2 class="section__title">Lanches</h2>
+                <v-card v-for="item in lanches" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Mercado</h2>
+                <v-card v-for="item in mercado" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Farmácia</h2>
+                <v-card v-for="item in farmacia" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Frutas e Verduras</h2>
+                <v-card v-for="item in frutas_verduras" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Marmitaria</h2>
+                <v-card v-for="item in marmitaria" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Frigorifico</h2>
+                <v-card v-for="item in frigorifico" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
         </div>
     </main>
 
