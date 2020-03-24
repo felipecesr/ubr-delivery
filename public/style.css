@@ -34,10 +34,12 @@ a {
 }
 
 .title {
-  font-style: oblique;
-  padding: 24px;
-  text-transform: uppercase;
-  text-align: center;
+  background-image: url(logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120px;
+  margin: 24px 0;
+  text-indent: -9999px;
 }
 
 .card {
