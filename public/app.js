@@ -103,7 +103,7 @@ var app = new Vue({
         id: 8,
         name: 'Glauciane Marmitaria',
         phone: '85997443637',
-        whatsapp: '5585997443637'
+        whatsapp: '5585997443736'
       }
     ],
     frigorifico: [
