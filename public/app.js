@@ -63,8 +63,8 @@ var app = new Vue({
       {
         id: 11,
         name: 'Comercial Bom Frango',
-        phone: '85999490964',
-        whatsapp: '5585991512676'
+        phone: '85991512676',
+        whatsapp: '5585999490964'
       },
       {
         id: 3,
