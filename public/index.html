@@ -35,6 +35,17 @@
         <h1 class="title">Uruburetama Delivery</h1>
         <div class="container">
             <section class="section">
+                <h2 class="section__title">Café</h2>
+                <v-card v-for="item in cafe" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Doces e Sobremesas</h2>
+                <v-card v-for="item in doces_sobremesas" :name="item.name" :phone="item.phone"
+                    :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
                 <h2 class="section__title">Lanches</h2>
                 <v-card v-for="item in lanches" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
                 </v-card>
@@ -62,6 +73,11 @@
             <section class="section">
                 <h2 class="section__title">Frigorifico</h2>
                 <v-card v-for="item in frigorifico" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
+                </v-card>
+            </section>
+            <section class="section">
+                <h2 class="section__title">Água</h2>
+                <v-card v-for="item in agua" :name="item.name" :phone="item.phone" :whatsapp="item.whatsapp">
                 </v-card>
             </section>
         </div>
