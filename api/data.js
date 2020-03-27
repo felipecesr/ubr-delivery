@@ -15,12 +15,12 @@ const data = {
     {
       name: 'Docinhos Sonho Meu',
       phone: '85996658745',
-      whatsapp: '85996658745'
+      whatsapp: '5585996658745'
     },
     {
       name: 'Point do Açaí',
-      phone: '85999344242',
-      whatsapp: '85999344242'
+      phone: '85997729966',
+      whatsapp: '5585997931353'
     }
   ],
   lanches: [
@@ -160,7 +160,7 @@ const data = {
     {
       name: 'Marmitaria Carmelita',
       phone: '85996588471',
-      whatsapp: '55885996588471'
+      whatsapp: '5585996588471'
     }
   ],
   frigorifico: [
