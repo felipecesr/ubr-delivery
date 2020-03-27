@@ -204,7 +204,7 @@ const data = {
     {
       name: 'Casa do Sertão',
       phone: '85998205630',
-      whatsapp: '5585998205630'
+      whatsapp: '5585982005630'
     }
   ]
 };
