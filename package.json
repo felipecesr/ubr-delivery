@@ -1,0 +1,15 @@
+{
+  "name": "ubr-delivery",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "npm run build && next export -o dist/"
+  },
+  "dependencies": {
+    "next": "9.3.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
