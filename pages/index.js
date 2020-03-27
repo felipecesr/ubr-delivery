@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { Category } from '../components/Category';
 import { categories } from '../api/categories';
 
