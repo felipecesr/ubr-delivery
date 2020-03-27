@@ -13,6 +13,10 @@ class MyDocument extends Document {
       <Html lang="pt-br">
         <Head>
           <title>Uruburetama Delivery</title>
+          <meta
+            name="description"
+            content="Reduzindo a distância entre os comerciantes e os clientes de Uruburetama"
+          />
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="/style.css" />
           <GoogleAnalytics />
