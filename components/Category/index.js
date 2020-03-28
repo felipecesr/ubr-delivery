@@ -1,12 +1,13 @@
-import React from 'react';
-import { Card } from './Card';
-import { data } from '../api/data';
+import React from "react";
+import { Card } from "../Card";
+import data from "../../_data/dev/sheet.json";
+import * as S from "./styles";
 
 const Category = ({ category }) => {
-  const categoryItems = data[category.slug];
+  const categoryItems = data.filter(item => item.category === category);
   return (
-    <section className="section">
-      <h2 className="section__title">{category.name}</h2>
+    <section>
+      <S.CategoryTitle>{category}</S.CategoryTitle>
       {categoryItems.map(item => (
         <Card
           key={item.name}

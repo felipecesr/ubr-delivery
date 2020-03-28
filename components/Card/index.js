@@ -1,10 +1,11 @@
-import React from 'react';
-import { ContactButton } from './ContactButton';
+import React from "react";
+import { ContactButton } from "../ContactButton";
+import * as S from "./styles";
 
 const Card = ({ name, phone, whatsapp }) => (
-  <article className="card">
-    <h2 className="card__title">{name}</h2>
-    <ul className="contact-list">
+  <S.Card>
+    <S.CardTitle>{name}</S.CardTitle>
+    <S.ContactList>
       <ContactButton link={`tel:${phone}`} icon="phone" text="Celular" />
       {whatsapp && (
         <ContactButton
@@ -13,8 +14,8 @@ const Card = ({ name, phone, whatsapp }) => (
           text="Whatsapp"
         />
       )}
-    </ul>
-  </article>
+    </S.ContactList>
+  </S.Card>
 );
 
 export { Card };

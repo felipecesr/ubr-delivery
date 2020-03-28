@@ -1,7 +1,6 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
-import { GoogleAnalytics } from '../components/GoogleAnalytics';
-import { Hotjar } from '../components/Hotjar';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
+import { ScriptTags } from "../components/ScriptTags";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -40,8 +39,7 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="/style.css" />
-          <GoogleAnalytics />
-          <Hotjar />
+          <ScriptTags />
         </Head>
         <body>
           <Main />
