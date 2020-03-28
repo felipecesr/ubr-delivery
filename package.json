@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "npm run build && next export -o dist/"
+    "export": "npm run build && next export -o dist/",
+    "seed": "node _data/prod/sheet.js"
   },
   "dependencies": {
     "next": "9.3.2",
+    "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.0.1"
