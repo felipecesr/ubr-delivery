@@ -1,6 +1,5 @@
 import React from "react";
 
-// Cole esse código o mais alto possível na tag <head> da página:
 const TagManagerHead = () => (
   <script
     dangerouslySetInnerHTML={{
@@ -15,7 +14,6 @@ const TagManagerHead = () => (
   />
 );
 
-// Além disso, cole esse código imediatamente após a tag de abertura <body>:
 const TagManagerBody = () => (
   <noscript
     dangerouslySetInnerHTML={{
