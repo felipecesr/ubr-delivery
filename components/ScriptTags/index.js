@@ -1,10 +1,10 @@
 import React from "react";
-import { GoogleAnalytics } from "./GoogleAnalytics";
+import { TagManagerHead } from "./TagManager";
 import { Hotjar } from "./Hotjar";
 
 const ScriptTags = () => (
   <>
-    <GoogleAnalytics />
+    <TagManagerHead />
     <Hotjar />
   </>
 );

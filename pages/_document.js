@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import { ScriptTags } from "../components/ScriptTags";
+import { TagManagerBody } from "../components/ScriptTags/TagManager";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -41,6 +42,7 @@ class MyDocument extends Document {
           <ScriptTags />
         </Head>
         <body>
+          <TagManagerBody />
           <Main />
           <NextScript />
         </body>
