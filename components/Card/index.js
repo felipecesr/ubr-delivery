@@ -9,7 +9,7 @@ const Card = ({ name, phone, whatsapp }) => (
       <ContactButton link={`tel:${phone}`} icon="phone" text="Celular" />
       {whatsapp && (
         <ContactButton
-          link={`https://api.whatsapp.com/send?phone=${whatsapp}`}
+          link={`https://api.whatsapp.com/send?phone=55${whatsapp}`}
           icon="whatsapp"
           text="Whatsapp"
         />

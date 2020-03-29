@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const GoogleAnalytics = () => (
   <>
     <script
       async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-65777050-2"
+      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
     />
     <script
       dangerouslySetInnerHTML={{
@@ -13,7 +13,7 @@ const GoogleAnalytics = () => (
           function gtag() { dataLayer.push(arguments); }
           gtag('js', new Date());
 
-          gtag('config', 'UA-65777050-2');
+          gtag('config', '${process.env.GOOGLE_ANALYTICS}');
         `
       }}
     />

@@ -32,10 +32,9 @@ class MyDocument extends Document {
     return (
       <Html lang="pt-br">
         <Head>
-          <title>Uruburetama Delivery</title>
           <meta
-            name="description"
-            content="Reduzindo a distância entre os comerciantes e os clientes de Uruburetama"
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
           />
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="/style.css" />
