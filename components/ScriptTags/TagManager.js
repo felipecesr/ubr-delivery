@@ -17,14 +17,13 @@ const TagManagerHead = () => (
 
 // Além disso, cole esse código imediatamente após a tag de abertura <body>:
 const TagManagerBody = () => (
-  <noscript>
-    <iframe
-      src={`https://www.googletagmanager.com/ns.html?id=${process.env.GOOGLE_TAG_MANAGER}`}
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
-  </noscript>
+  <noscript
+    dangerouslySetInnerHTML={{
+      __html: `
+      <iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GOOGLE_TAG_MANAGER}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    `
+    }}
+  />
 );
 
 export { TagManagerHead, TagManagerBody };
