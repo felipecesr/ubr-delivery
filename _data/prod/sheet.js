@@ -1,8 +1,8 @@
+require("dotenv").config();
 const fetch = require("node-fetch");
 const fs = require("fs");
 
-const sheetID = "1oWrpJ01PUkzM_EyzzMiJ_pOMjdzfS-YGsODUct2Hfa8";
-const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
+const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${process.env.GOOGLE_SHEET_ID}/1/public/values?alt=json`;
 
 async function getSheet(url) {
   try {
