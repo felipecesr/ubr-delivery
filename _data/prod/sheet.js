@@ -1,6 +1,7 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
 const fs = require("fs");
+const { makeSlug } = require("../utils");
 
 const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${process.env.GOOGLE_SHEET_ID}/1/public/values?alt=json`;
 
@@ -13,7 +14,10 @@ async function getSheet(url) {
 
     data.feed.entry.forEach(item => {
       content.push({
-        category: item.gsx$escolhaacategoria.$t,
+        category: {
+          name: item.gsx$escolhaacategoria.$t,
+          slug: makeSlug(item.gsx$escolhaacategoria.$t)
+        },
         name: item.gsx$informeonomedoseuestabelecimento.$t,
         phone: item.gsx$informeocontatoparaligação.$t,
         whatsapp: item.gsx$informeocontatoparawhatsapp.$t

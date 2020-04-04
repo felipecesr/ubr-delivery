@@ -36,12 +36,13 @@ class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          <meta name="theme-color" content="#ffb800" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="/style.css" />
-          <TagManagerHead />
+          {/* <TagManagerHead /> */}
         </Head>
         <body>
-          <TagManagerBody />
+          {/* <TagManagerBody /> */}
           <Main />
           <NextScript />
         </body>
