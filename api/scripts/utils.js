@@ -1,5 +1,5 @@
-module.exports.makeSlug = function(val, replaceBy) {
-  replaceBy = replaceBy || "-";
+module.exports.makeSlug = function (val, replaceBy) {
+  replaceBy = replaceBy || '-';
   let mapaAcentosHex = {
     a: /[\xE0-\xE6]/g,
     A: /[\xC0-\xC6]/g,
@@ -14,7 +14,7 @@ module.exports.makeSlug = function(val, replaceBy) {
     c: /\xE7/g,
     C: /\xC7/g,
     n: /\xF1/g,
-    N: /\xD1/g
+    N: /\xD1/g,
   };
 
   for (let letra in mapaAcentosHex) {
@@ -23,12 +23,26 @@ module.exports.makeSlug = function(val, replaceBy) {
   }
 
   val = val.toLowerCase();
-  val = val.replace(/[^a-z0-9\-]/g, " ");
+  val = val.replace(/[^a-z0-9\-]/g, ' ');
 
-  val = val.replace(/ {2,}/g, " ");
+  val = val.replace(/ {2,}/g, ' ');
 
   val = val.trim();
   val = val.replace(/\s/g, replaceBy);
 
   return val;
+};
+
+module.exports.getUnique = function (arr, comp) {
+  const unique = arr
+    .map((e) => e[comp])
+
+    // store the keys of the unique objects
+    .map((e, i, final) => final.indexOf(e) === i && i)
+
+    // eliminate the dead keys & store unique objects
+    .filter((e) => arr[e])
+    .map((e) => arr[e]);
+
+  return unique;
 };
