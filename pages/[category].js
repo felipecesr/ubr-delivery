@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Logo } from '../components/Logo';
 import { Card } from '../components/Card';
 import { categories } from '../utils/categories';
@@ -22,37 +20,44 @@ const Icon = styled(ArrowBack)`
   border-radius: 50%;
 `;
 
-const Category = () => {
-  const router = useRouter();
-  const { category } = router.query;
+const Category = ({ name, items }) => (
+  <main className="container">
+    <Logo />
+    <section>
+      <CategoryTitle>
+        <a href="/">
+          <Icon />
+        </a>
+        {name}
+      </CategoryTitle>
+      {items.map((item) => (
+        <Card
+          key={item.name}
+          name={item.name}
+          phone={item.phone}
+          whatsapp={item.whatsapp}
+        />
+      ))}
+    </section>
+  </main>
+);
 
-  const categoryItems = data.filter((item) => item.category.slug === category);
+export async function getStaticPaths() {
+  const paths = categories.map((item) => `/${item.slug}`);
 
-  const [fullCategory] = categories.filter((cat) => cat.slug === category);
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
-  return (
-    <main className="container">
-      <Logo />
-      <section>
-        {fullCategory && (
-          <CategoryTitle>
-            <Link href="/">
-              <Icon />
-            </Link>
-            {fullCategory.name}
-          </CategoryTitle>
-        )}
-        {categoryItems.map((item) => (
-          <Card
-            key={item.name}
-            name={item.name}
-            phone={item.phone}
-            whatsapp={item.whatsapp}
-          />
-        ))}
-      </section>
-    </main>
-  );
-};
+export async function getStaticProps({ params }) {
+  const { category } = params;
+
+  const items = data.filter((item) => item.category.slug === category);
+  const { name } = categories.filter((cat) => cat.slug === category)[0];
+
+  return { props: { name, items } };
+}
 
 export default Category;
