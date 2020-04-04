@@ -1,9 +1,10 @@
-import React from "react";
-import * as S from "./styles";
+import React from 'react';
+import Link from 'next/link';
+import * as S from './styles';
 
 const Logo = () => (
   <S.Logo>
-    <a href="/">Uruburetama Delivery</a>
+    <Link href="/">Uruburetama Delivery</Link>
   </S.Logo>
 );
 

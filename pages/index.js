@@ -1,26 +1,8 @@
-import Head from "next/head";
-import { Logo } from "../components/Logo";
-import { Grid } from "../components/Grid";
-import data from "../_data/dev/sheet.json";
-
-function getUnique(arr, comp) {
-  const unique = arr
-    .map(e => e[comp])
-
-    // store the keys of the unique objects
-    .map((e, i, final) => final.indexOf(e) === i && i)
-
-    // eliminate the dead keys & store unique objects
-    .filter(e => arr[e])
-    .map(e => arr[e]);
-
-  return unique;
-}
-
-const categories = getUnique(
-  data.map(item => item.category),
-  "slug"
-);
+import Head from 'next/head';
+import { Logo } from '../components/Logo';
+import { Grid } from '../components/Grid';
+import { CategoryTitle } from '../components/CategoryTitle/styles';
+import { categories } from '../utils/categories';
 
 const Home = () => (
   <>
@@ -33,6 +15,7 @@ const Home = () => (
     </Head>
     <main className="container">
       <Logo />
+      <CategoryTitle>Categorias</CategoryTitle>
       <Grid categories={categories} />
     </main>
   </>

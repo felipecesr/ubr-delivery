@@ -1,22 +1,23 @@
-import React from "react";
-import * as S from "./styles";
+import React from 'react';
+import Link from 'next/link';
+import * as S from './styles';
 
 const Grid = ({ categories }) => (
   <S.Grid>
-    {categories.map(category => {
+    {categories.map((category) => {
       const { name, slug } = category;
 
       return (
-        <a key={slug} href={`/${slug}`}>
+        <Link key={slug} href="/[category]" as={`/${slug}`}>
           {name}
-        </a>
+        </Link>
       );
     })}
   </S.Grid>
 );
 
 Grid.defaultProps = {
-  categories: []
+  categories: [],
 };
 
 export { Grid };
