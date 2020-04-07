@@ -12,15 +12,16 @@ const typeDefs = gql`
     id: String!
     name: String!
     slug: String!
+    commerces: [Commerce!]!
   }
 
   type Commerce {
     id: String!
     name: String!
     slug: String!
-    phone: [String!]
-    whatsapp: [String!]
-    categories: [Category!]
+    phone: [String!]!
+    whatsapp: [String!]!
+    categories: [Category!]!
   }
 `;
 

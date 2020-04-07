@@ -1,10 +1,9 @@
 import React from 'react';
+import fetch from 'node-fetch';
 import { Logo } from '../components/Logo';
 import { Card } from '../components/Card';
-import { categories } from '../utils/categories';
 import { CategoryTitle } from '../components/CategoryTitle/styles';
 import { ArrowBack } from 'styled-icons/boxicons-regular';
-import data from '../_data/dev/sheet.json';
 import styled from 'styled-components';
 
 const Icon = styled(ArrowBack)`
@@ -34,8 +33,8 @@ const Category = ({ name, items }) => (
         <Card
           key={item.name}
           name={item.name}
-          phone={item.phone}
-          whatsapp={item.whatsapp}
+          phone={item.phone[0]}
+          whatsapp={item.whatsapp[0]}
         />
       ))}
     </section>
@@ -43,6 +42,15 @@ const Category = ({ name, items }) => (
 );
 
 export async function getStaticPaths() {
+  const res = await fetch('http://localhost:3000/api/graphql', {
+    method: 'post',
+    body: JSON.stringify({ query: '{ categories { slug } }' }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  const {
+    data: { categories },
+  } = await res.json();
+
   const paths = categories.map((item) => `/${item.slug}`);
 
   return {
@@ -54,10 +62,22 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { category } = params;
 
-  const items = data.filter((item) => item.category.slug === category);
-  const { name } = categories.filter((cat) => cat.slug === category)[0];
+  const res = await fetch('http://localhost:3000/api/graphql', {
+    method: 'post',
+    body: JSON.stringify({
+      query: '{ commerces { name phone whatsapp categories { name slug } } }',
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  const {
+    data: { commerces },
+  } = await res.json();
 
-  return { props: { name, items } };
+  const items = commerces.filter(
+    (item) => item.categories[0].slug === category
+  );
+
+  return { props: { name: items[0].categories[0].name, items } };
 }
 
 export default Category;
