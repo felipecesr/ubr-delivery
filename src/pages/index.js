@@ -1,22 +1,11 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => {
-  const { allCategoryJson } = useStaticQuery(graphql`
-    query MyQuery {
-      allCategoryJson {
-        edges {
-          node {
-            name
-            slug
-          }
-        }
-      }
-    }
-  `)
+const IndexPage = ({ data }) => {
+  const { allCategoryJson } = data
 
   return (
     <Layout>
@@ -32,5 +21,18 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query MyQuery {
+    allCategoryJson {
+      edges {
+        node {
+          name
+          slug
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
