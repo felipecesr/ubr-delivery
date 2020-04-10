@@ -1,18 +1,36 @@
 import React from "react"
+import { Link } from "gatsby"
 import { graphql } from "gatsby"
+
+import Layout from "../components/layout"
+import { Logo } from "../components/Logo"
+import { Card } from "../components/Card"
+import { CategoryTitle } from "../components/CategoryTitle/styles"
+import { Icon } from "../components/Icon/styles"
 
 const Category = ({ data }) => {
   const [category] = data.allCategoryJson.edges
 
   return (
-    <>
-      <h1>{category.node.name}</h1>
-      <ul>
-        {category.node.commerces.map(commerce => (
-          <li key={commerce.name}>{commerce.name}</li>
+    <Layout>
+      <Logo />
+      <section>
+        <CategoryTitle>
+          <Link to="/">
+            <Icon />
+          </Link>
+          {category.node.name}
+        </CategoryTitle>
+        {category.node.commerces.map(item => (
+          <Card
+            key={item.name}
+            name={item.name}
+            phone={item.phone}
+            whatsapp={item.whatsapp}
+          />
         ))}
-      </ul>
-    </>
+      </section>
+    </Layout>
   )
 }
 

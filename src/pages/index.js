@@ -1,7 +1,10 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import { Logo } from "../components/Logo"
+import { Grid } from "../components/Grid"
+import { CategoryTitle } from "../components/CategoryTitle/styles"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
@@ -9,15 +12,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
-      <h1>Hi people</h1>
-      <ul>
-        {allCategoryJson.edges.map(edge => (
-          <li>
-            <Link to={`/${edge.node.slug}`}>{edge.node.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <SEO title="UBR Delivery" />
+      <Logo />
+      <CategoryTitle>Categorias</CategoryTitle>
+      <Grid categories={allCategoryJson} />
     </Layout>
   )
 }
