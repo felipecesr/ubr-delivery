@@ -12,11 +12,13 @@ export const ContactButtonLink = styled.a`
   align-items: center;
 `
 
-export const ContactButtonIcon = styled.svg`
-  fill: var(--primary-color);
-  width: var(--icon-size);
-  height: var(--icon-size);
-  margin-bottom: 8px;
+export const ContactButtonIcon = styled.div`
+  svg {
+    fill: var(--primary-color);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-bottom: 8px;
+  }
 `
 
 export const ContactButtonText = styled.span`

@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root {
-    --icon-size: 20px;
+    --icon-size: 24px;
     --body-bg: #ffb800;
     --primary-color: #2e3731;
   }

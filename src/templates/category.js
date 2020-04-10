@@ -43,6 +43,8 @@ export const query = graphql`
           slug
           commerces {
             name
+            phone
+            whatsapp
           }
         }
       }

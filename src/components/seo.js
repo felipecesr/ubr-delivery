@@ -73,9 +73,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `pt-br`,
   meta: [],
-  description: ``,
+  description: `Reduzindo a distância entre os comerciantes e os clientes de Uruburetama`,
 }
 
 SEO.propTypes = {
