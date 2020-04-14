@@ -2,11 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import { Logo } from "../components/Logo"
-import { Card } from "../components/Card"
-import { CategoryTitle } from "../components/CategoryTitle/styles"
-import { Icon } from "../components/Icon/styles"
+import Layout from "../../components/layout"
+import { Logo } from "../../components/Logo"
+import { Card } from "../../components/Card"
+import { CategoryTitle } from "../../components/CategoryTitle/styles"
+import { Icon } from "../../components/Icon/styles"
 
 const Category = ({ data }) => {
   const [category] = data.allCategoryJson.edges
@@ -27,6 +27,7 @@ const Category = ({ data }) => {
             name={item.name}
             phone={item.phone}
             whatsapp={item.whatsapp}
+            openingHours={item.openingHours}
           />
         ))}
       </section>
@@ -45,6 +46,11 @@ export const query = graphql`
             name
             phone
             whatsapp
+            openingHours {
+              dayOfWeek
+              opens
+              closes
+            }
           }
         }
       }

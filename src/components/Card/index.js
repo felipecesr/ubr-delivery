@@ -1,10 +1,13 @@
 import React from "react"
-import { ContactButton } from "../ContactButton"
 import * as S from "./styles"
 
-const Card = ({ name, phone, whatsapp }) => (
+import { ContactButton } from "./ContactButton"
+import { OpeningHour } from "./OpeningHour"
+
+const Card = ({ name, phone, whatsapp, openingHours }) => (
   <S.Card>
     <S.CardTitle>{name}</S.CardTitle>
+    {openingHours && <OpeningHour openingHours={openingHours} />}
     <S.ContactList>
       <ContactButton link={`tel:${phone[0]}`} icon="phone" text="Celular" />
       {whatsapp.length && (
@@ -17,5 +20,9 @@ const Card = ({ name, phone, whatsapp }) => (
     </S.ContactList>
   </S.Card>
 )
+
+Card.defaultProps = {
+  openingHours: false,
+}
 
 export { Card }
