@@ -14,7 +14,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String!
       phone: [String]
       whatsapp: [String]
+      openingHours: [WorkDay]
       categories: [CategoryJson] @link(by: "slug")
+    }
+
+    type WorkDay @dontInfer {
+      dayOfWeek: [String!]!
+      opens: String!
+      closes: String!
     }
   `
 
@@ -38,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allCategoryJson.edges.forEach(({ node }) => {
       createPage({
         path: node.slug,
-        component: path.resolve("./src/templates/category.js"),
+        component: path.resolve("./src/templates/Category/index.js"),
         context: {
           slug: node.slug,
         },
