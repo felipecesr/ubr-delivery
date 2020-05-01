@@ -4,11 +4,16 @@ import PropTypes from "prop-types"
 import { Container } from "./Container/styles"
 import GlobalStyles from "../styles/global"
 
+import PageHeader from "./PageHeader"
+
 const Layout = ({ children }) => (
-  <main>
-    <GlobalStyles />
-    <Container>{children}</Container>
-  </main>
+  <>
+    <PageHeader />
+    <main>
+      <GlobalStyles />
+      <Container>{children}</Container>
+    </main>
+  </>
 )
 
 Layout.propTypes = {
