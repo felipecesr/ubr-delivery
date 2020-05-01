@@ -23,7 +23,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `UBR Delivery`,
-        short_name: `starter`,
+        short_name: `UBR Delivery`,
         start_url: `/`,
         background_color: `#ffb800`,
         theme_color: `#ffb800`,
