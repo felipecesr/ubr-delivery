@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import { Logo } from "../components/Logo"
-import { Grid } from "../components/Grid"
+import { List } from "../components/List"
 import { CategoryTitle } from "../components/CategoryTitle/styles"
 import SEO from "../components/seo"
 
@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
       <SEO title="UBR Delivery" />
       <Logo />
       <CategoryTitle>Categorias</CategoryTitle>
-      <Grid categories={allCategoryJson} />
+      <List categories={allCategoryJson} />
     </Layout>
   )
 }
