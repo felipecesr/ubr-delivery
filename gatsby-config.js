@@ -5,7 +5,7 @@ module.exports = {
     title: `UBR Delivery`,
     description: `Viemos para facilitar o contato com os comerciantes de Uruburetama`,
     author: `@felipecesr`,
-    siteUrl: `https://ubr-delivery.netlify.com`,
+    siteUrl: `https://ubr-delivery.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
