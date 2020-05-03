@@ -67,3 +67,9 @@ module.exports.openingHours = [
     closes: "19:00",
   },
 ]
+
+// 0 - 1440
+module.exports.hours = {
+  mon: { open: 570, close: 1080 },
+  tue: { open: 570, close: 1050 },
+}
