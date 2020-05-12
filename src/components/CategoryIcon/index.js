@@ -13,6 +13,7 @@ import Marmitaria from "./categories/Marmitaria"
 import Mercado from "./categories/Mercado"
 import Queijos from "./categories/Queijos"
 import Suplementos from "./categories/Suplementos"
+import Pizzaria from "./categories/Pizzaria"
 
 const CategoryIcon = props => {
   switch (props.name) {
@@ -40,6 +41,8 @@ const CategoryIcon = props => {
       return <Queijos {...props} />
     case "suplementos":
       return <Suplementos {...props} />
+    case "pizzaria":
+      return <Pizzaria {...props} />
     default:
       return <Suplementos {...props} />
   }
