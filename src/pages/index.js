@@ -2,9 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import { Logo } from "../components/Logo"
+import { Hero } from "../components/Hero"
+import { SearchBox } from "../components/SearchBox"
 import { List } from "../components/List"
-import { CategoryTitle } from "../components/CategoryTitle/styles"
+import { Container } from "../components/Container/styles"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
@@ -13,9 +14,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="UBR Delivery" />
-      <Logo />
-      <CategoryTitle>Categorias</CategoryTitle>
-      <List categories={allCategoryJson} />
+      <Hero />
+      <Container>
+        <SearchBox />
+        <List categories={allCategoryJson} />
+      </Container>
     </Layout>
   )
 }
@@ -27,6 +30,9 @@ export const query = graphql`
         node {
           name
           slug
+          commerces {
+            name
+          }
         }
       }
     }

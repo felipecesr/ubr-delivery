@@ -5,8 +5,7 @@ import { CategoryIcon } from "../../CategoryIcon"
 export const PanelWrapper = styled.li`
   background-color: var(--color-elements);
   border-radius: 10px;
-  box-shadow: 0 0.08rem 0.8rem 0.08rem rgba(62, 57, 107, 0.04),
-    0 0.42rem 1.12rem rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 `
 
 export const PanelLink = styled(Link)`
@@ -16,21 +15,23 @@ export const PanelLink = styled(Link)`
 `
 
 export const PanelContent = styled.div`
-  padding: 1em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding: 1.5em 1.375em;
   width: 100%;
   height: 100%;
 `
 
 export const PanelIcon = styled(CategoryIcon)`
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `
 
 export const PanelName = styled.p`
-  font-size: 0.9rem;
+  color: #464d6c;
+  font-size: 1.25em;
   font-weight: bold;
-  text-align: center;
+  margin-bottom: 8px;
+`
+
+export const PanelCounter = styled.p`
+  color: rgba(49, 46, 46, 0.5);
+  font-size: 1em;
 `

@@ -11,8 +11,10 @@ const List = ({ categories }) => {
   return (
     <S.ListWrapper>
       {categories.edges.map(edge => {
-        const { name, slug } = edge.node
-        return <Panel key={slug} name={name} slug={slug} />
+        const { name, slug, commerces } = edge.node
+        return (
+          <Panel key={slug} name={name} slug={slug} commerces={commerces} />
+        )
       })}
     </S.ListWrapper>
   )
