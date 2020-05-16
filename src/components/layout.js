@@ -2,12 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import GlobalStyles from "../styles/global"
+import { MenuBar } from "./MenuBar"
 
 const Layout = ({ children }) => (
   <>
     <main>
       <GlobalStyles />
       {children}
+      <MenuBar />
     </main>
   </>
 )
