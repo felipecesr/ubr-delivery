@@ -11,6 +11,7 @@ export const MenuBarNav = styled.nav`
   display: flex;
   background-color: #fff;
   color: #464d6c;
+  height: 3.5rem;
 `
 
 export const MenuBarItem = styled.button`

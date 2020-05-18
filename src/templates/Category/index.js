@@ -1,26 +1,19 @@
 import React from "react"
-import { Link } from "gatsby"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/layout"
-import { Logo } from "../../components/Logo"
 import { Card } from "../../components/Card"
-import { CategoryTitle } from "../../components/CategoryTitle/styles"
-import { Icon } from "../../components/Icon/styles"
+import { Container } from "../../components/Container/styles"
+import { Nav } from "./Nav"
 
 const Category = ({ data }) => {
   const [category] = data.allCategoryJson.edges
 
   return (
     <Layout>
-      <Logo />
-      <section>
-        <CategoryTitle>
-          <Link to="/">
-            <Icon />
-          </Link>
-          {category.node.name}
-        </CategoryTitle>
+      <Nav name={category.node.name} />
+      {/* <Hero name={category.node.name} icon={category.node.slug} /> */}
+      <Container as="section">
         {category.node.commerces.map(item => (
           <Card
             key={item.name}
@@ -30,7 +23,7 @@ const Category = ({ data }) => {
             openingHours={item.openingHours}
           />
         ))}
-      </section>
+      </Container>
     </Layout>
   )
 }

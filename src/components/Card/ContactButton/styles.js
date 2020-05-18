@@ -1,26 +1,13 @@
 import styled from "styled-components"
+import { PhoneAlt } from "styled-icons/fa-solid"
 
-export const ContactButton = styled.li`
-  flex: 1;
-`
-
-export const ContactButtonLink = styled.a`
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-export const ContactButtonIcon = styled.div`
-  svg {
-    fill: var(--primary-color);
-    width: var(--icon-size);
-    height: var(--icon-size);
-    margin-bottom: 8px;
-  }
-`
-
-export const ContactButtonText = styled.span`
+export const ContactButton = styled.a`
   display: block;
+`
+
+export const ContactButtonIcon = styled(PhoneAlt)`
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  margin-right: 0.5em;
 `

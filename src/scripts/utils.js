@@ -69,47 +69,47 @@ module.exports.openingHours = [
 ]
 
 // 0 - 1440
-module.exports.hours = {
-  mon: { open: 570, close: 1080 },
-  tue: { open: 570, close: 1050 },
-}
+// module.exports.hours = {
+//   mon: { open: 570, close: 1080 },
+//   tue: { open: 570, close: 1050 },
+// }
 
-var d = new Date()
-var n = d.getDay()
-var now = d.getHours() + "." + d.getMinutes()
-var weekdays = [
-  ["Sunday", 9.3, 12.0, 15.3, 22.0],
-  ["Monday", 8.3, 12.0, 15.3, 19.0],
-  ["Tuesday", 8.3, 12.0, 15.3, 19.0],
-  ["Wednesday", 8.3, 12.0, 15.3, 19.0],
-  ["Thursday", 8.3, 12.0, 15.3, 19.0],
-  ["Friday", 8.3, 11.3],
-  ["Saturday"], // we are closed, sorry!
-]
-var day = weekdays[n]
+// var d = new Date()
+// var n = d.getDay()
+// var now = d.getHours() + "." + d.getMinutes()
+// var weekdays = [
+//   ["Sunday", 9.3, 12.0, 15.3, 22.0],
+//   ["Monday", 8.3, 12.0, 15.3, 19.0],
+//   ["Tuesday", 8.3, 12.0, 15.3, 19.0],
+//   ["Wednesday", 8.3, 12.0, 15.3, 19.0],
+//   ["Thursday", 8.3, 12.0, 15.3, 19.0],
+//   ["Friday", 8.3, 11.3],
+//   ["Saturday"], // we are closed, sorry!
+// ]
+// var day = weekdays[n]
 
-if ((now > day[1] && now < day[2]) || (now > day[3] && now < day[4])) {
-  console.log("We're open right now!")
-} else {
-  console.log("Sorry, we're closed!")
-}
+// if ((now > day[1] && now < day[2]) || (now > day[3] && now < day[4])) {
+//   console.log("We're open right now!")
+// } else {
+//   console.log("Sorry, we're closed!")
+// }
 
-const hours = {
-  Monday: { start: 1000, end: 1800 },
-  Tuesday: { start: 1400, end: 1800 },
-  Wednesday: { start: 1100, end: 1900 },
-  Thursday: { start: 1300, end: 1800 },
-  Friday: { start: 1000, end: 1700 },
-  Saturday: { start: 900, end: 1700 },
-  Sunday: {},
-}
+// const hours = {
+//   Monday: { start: 1000, end: 1800 },
+//   Tuesday: { start: 1400, end: 1800 },
+//   Wednesday: { start: 1100, end: 1900 },
+//   Thursday: { start: 1300, end: 1800 },
+//   Friday: { start: 1000, end: 1700 },
+//   Saturday: { start: 900, end: 1700 },
+//   Sunday: {},
+// }
 
-module.exports.weekdays = new Map([
-  ["sunday"],
-  ["monday", { open: 1000, close: 1800 }],
-  ["tuesday", { open: 1000, close: 1800 }],
-  ["wednesday", { open: 1000, close: 1800 }],
-  ["thursday", { open: 1000, close: 1800 }],
-  ["friday", { open: 1000, close: 1800 }],
-  ["saturday", { open: 1000, close: 1800 }],
-])
+// module.exports.weekdays = new Map([
+//   ["sunday"],
+//   ["monday", { open: 1000, close: 1800 }],
+//   ["tuesday", { open: 1000, close: 1800 }],
+//   ["wednesday", { open: 1000, close: 1800 }],
+//   ["thursday", { open: 1000, close: 1800 }],
+//   ["friday", { open: 1000, close: 1800 }],
+//   ["saturday", { open: 1000, close: 1800 }],
+// ])

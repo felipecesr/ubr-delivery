@@ -38,8 +38,12 @@ async function getSheet(url) {
       commerces.push({
         slug: makeSlug(item.gsx$informeonomedoseuestabelecimento.$t),
         name: item.gsx$informeonomedoseuestabelecimento.$t,
-        phone: item.gsx$informeocontatoparaligação.$t.split(", "),
-        whatsapp: item.gsx$informeocontatoparawhatsapp.$t.split(", "),
+        phone: item.gsx$informeocontatoparaligação.$t
+          .split("/")
+          .map(item => item.replace("-", "")),
+        whatsapp: item.gsx$informeocontatoparawhatsapp.$t
+          .split("/")
+          .map(item => item.replace("-", "")),
         openingHours,
         categories: item.gsx$escolhaacategoria.$t
           .split(", ")
