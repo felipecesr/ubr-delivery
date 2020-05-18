@@ -3,8 +3,8 @@ import algoliasearch from "algoliasearch/lite"
 import { InstantSearch, SearchBox, Hits, Stats } from "react-instantsearch-dom"
 import { Hit } from "../components/Search/Hit"
 import Layout from "../components/layout"
-import { Container } from "../components/Container/styles"
 import SEO from "../components/seo"
+import * as S from "../components/Search/styled"
 
 const algolia = {
   appId: process.env.GATSBY_ALGOLIA_APP_ID,
@@ -17,8 +17,8 @@ const searchClient = algoliasearch(algolia.appId, algolia.searchOnlyApiKey)
 const SearchPage = () => {
   return (
     <Layout>
-      <SEO title="UBR Delivery" />
-      <Container>
+      <S.SearchWrapper>
+        <SEO title="UBR Delivery" />
         <InstantSearch
           searchClient={searchClient}
           indexName={algolia.indexName}
@@ -33,7 +33,7 @@ const SearchPage = () => {
           />
           <Hits hitComponent={Hit} />
         </InstantSearch>
-      </Container>
+      </S.SearchWrapper>
     </Layout>
   )
 }
