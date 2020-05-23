@@ -4,7 +4,7 @@ import * as S from "./styled"
 
 import { Home2 as Home } from "styled-icons/remix-line"
 import { Search, Moon } from "styled-icons/boxicons-regular"
-import { GridOutline as Grid } from "styled-icons/evaicons-outline"
+// import { GridOutline as Grid } from "styled-icons/evaicons-outline"
 
 const MenuBar = () => (
   <S.MenuBarWrapper>
@@ -31,9 +31,9 @@ const MenuBar = () => (
       >
         <Search />
       </S.MenuBarItem>
-      <S.MenuBarItem>
+      {/* <S.MenuBarItem>
         <Grid />
-      </S.MenuBarItem>
+      </S.MenuBarItem> */}
       <S.MenuBarItem>
         <Moon />
       </S.MenuBarItem>

@@ -5,3 +5,8 @@ export const Container = styled.div`
   padding: 0 24px 96px;
   margin: 0 auto;
 `
+
+export const ContainerCategory = styled(Container)`
+  padding-top: 80px;
+  padding-bottom: 72px;
+`

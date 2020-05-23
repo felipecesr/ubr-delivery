@@ -7,11 +7,11 @@ const Hero = () => (
   <S.HeroWrapper>
     <Logo />
     <S.HeroTitle>
-      Pare de <strong>sair de casa</strong>
+      Fique em casa, <strong>nós vamos até você</strong>!
     </S.HeroTitle>
     <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
-      laudantium?
+      Nossa missão é reduzir a distância entre os comerciantes locais e os
+      clientes em apenas alguns cliques.
     </p>
   </S.HeroWrapper>
 )

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../../components/layout"
 import { Card } from "../../components/Card"
-import { Container } from "../../components/Container/styles"
+import { ContainerCategory } from "../../components/Container/styles"
 import { Nav } from "./Nav"
 
 const Category = ({ data }) => {
@@ -13,7 +13,7 @@ const Category = ({ data }) => {
     <Layout>
       <Nav name={category.node.name} />
       {/* <Hero name={category.node.name} icon={category.node.slug} /> */}
-      <Container as="section">
+      <ContainerCategory as="section">
         {category.node.commerces.map(item => (
           <Card
             key={item.name}
@@ -23,7 +23,7 @@ const Category = ({ data }) => {
             openingHours={item.openingHours}
           />
         ))}
-      </Container>
+      </ContainerCategory>
     </Layout>
   )
 }

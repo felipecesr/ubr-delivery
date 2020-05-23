@@ -46,14 +46,18 @@ const OpeningHour = ({ openingHours }) => {
 
   if (isOpen) {
     return (
-      <p>
+      <S.OpeningHourWrapper>
         <S.isOpen>Aberto</S.isOpen>
         <span> - Fecha às {closes}</span>
-      </p>
+      </S.OpeningHourWrapper>
     )
   }
 
-  return <S.isClosed>Fechado</S.isClosed>
+  return (
+    <S.OpeningHourWrapper>
+      <S.isClosed>Fechado</S.isClosed>
+    </S.OpeningHourWrapper>
+  )
 }
 
 export { OpeningHour }
