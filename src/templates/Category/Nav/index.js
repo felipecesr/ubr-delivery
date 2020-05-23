@@ -6,7 +6,7 @@ import { ArrowBack } from "styled-icons/boxicons-regular"
 
 const Nav = ({ name }) => (
   <S.NavWrapper>
-    <S.NavButtonBack to="/" swipe direction="right">
+    <S.NavButtonBack to="/" cover direction="right" duration={1} bg="#ffb800">
       <ArrowBack />
     </S.NavButtonBack>
     <S.NavTitle>{name}</S.NavTitle>

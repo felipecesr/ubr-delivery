@@ -5,10 +5,10 @@ const Panel = ({ name, slug, commerces }) => (
   <S.PanelWrapper>
     <S.PanelLink
       to={`/${slug}`}
-      swipe
+      cover
       direction="left"
-      top="entry"
-      entryOffset={80}
+      duration={1}
+      bg="#ffb800"
     >
       <S.PanelContent>
         <S.PanelIcon name={slug} size={{ width: 32, height: 32 }} />
