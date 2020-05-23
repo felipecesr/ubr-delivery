@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 const SVG = ({ className, size }) => (
   <svg viewBox="0 0 44 60" className={className} {...size}>
-    <g fill-rule="nonzero" fill="none">
+    <g fillRule="nonzero" fill="none">
       <path
         d="M40.93 41.45v.01c-.323 1.789-1.84 8.633-7.531 16.963-.28.411-.704.704-1.188.821C30.986 59.54 28.1 60 22 60s-8.986-.46-10.211-.756a2.013 2.013 0 0 1-1.188-.821C4.91 50.093 3.393 43.249 3.07 41.46l3.847-4 29.437-.008z"
         fill="#e57e25"

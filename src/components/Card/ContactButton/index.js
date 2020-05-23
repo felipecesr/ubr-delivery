@@ -5,7 +5,7 @@ import { Whatsapp, Phone } from "styled-icons/icomoon"
 
 const ContactButton = ({ link, icon, children }) => (
   <S.ContactButton href={link}>
-    <S.ContactButtonIcon icon={icon}>
+    <S.ContactButtonIcon>
       {icon === "phone" ? <Phone /> : <Whatsapp />}
     </S.ContactButtonIcon>
     <S.ContactButtonText>{children}</S.ContactButtonText>

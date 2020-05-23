@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { CategoryIcon } from "../../CategoryIcon"
 
 export const PanelWrapper = styled.li`
@@ -8,7 +8,7 @@ export const PanelWrapper = styled.li`
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 `
 
-export const PanelLink = styled(Link)`
+export const PanelLink = styled(AniLink)`
   display: block;
   width: 100%;
   height: 100%;

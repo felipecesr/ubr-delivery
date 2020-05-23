@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const OpeningHourWrapper = styled.p`
+export const OpeningHourWrapper = styled.div`
   margin-bottom: 24px;
 `
 

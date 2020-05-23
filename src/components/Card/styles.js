@@ -17,12 +17,12 @@ export const CardTitle = styled.h2`
 
 export const ContactList = styled.ul`
   + ul {
-    margin-top: 10px;
+    margin-top: 0.5em;
   }
 `
 
 export const ContactListItem = styled.li`
   + li {
-    margin-top: 10px;
+    margin-top: 0.5em;
   }
 `

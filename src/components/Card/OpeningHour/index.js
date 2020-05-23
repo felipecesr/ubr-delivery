@@ -1,32 +1,17 @@
 import React, { useState, useEffect } from "react"
 import * as S from "./styles"
 
-const OpeningHour = ({ openingHours }) => {
+const OpeningHour = ({ day }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const weekdays = [
-      "sunday",
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-    ]
-
     const d = new Date()
-    const n = d.getDay()
     const now = parseFloat(d.getHours() + "." + d.getMinutes())
-    const today = openingHours[weekdays[n]]
 
-    if (
-      (now > today[0] && now < today[1]) ||
-      (now > today[2] && now < today[3])
-    ) {
+    if ((now > day[0] && now < day[1]) || (now > day[2] && now < day[3])) {
       setIsOpen(true)
     }
-  }, [openingHours])
+  }, [day])
 
   if (isOpen) {
     return (
@@ -41,6 +26,10 @@ const OpeningHour = ({ openingHours }) => {
       <S.isClosed>Fechado</S.isClosed>
     </S.OpeningHourWrapper>
   )
+}
+
+OpeningHour.defaultProps = {
+  today: [],
 }
 
 export { OpeningHour }
