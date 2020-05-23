@@ -12,7 +12,6 @@ const Category = ({ data }) => {
   return (
     <Layout>
       <Nav name={category.node.name} />
-      {/* <Hero name={category.node.name} icon={category.node.slug} /> */}
       <ContainerCategory as="section">
         {category.node.commerces.map(item => (
           <Card

@@ -6,7 +6,7 @@ export const NavWrapper = styled.header`
   text-align: center;
   position: relative;
   padding: 1em 0;
-  background-color: #fff;
+  background-color: #ffb800;
   margin-bottom: 24px;
 
   position: fixed;
