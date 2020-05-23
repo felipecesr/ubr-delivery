@@ -18,6 +18,7 @@
     "gatsby-plugin-sitemap": "^2.3.1",
     "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-plugin-transition-link": "^1.18.0",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-json": "^2.3.1",
     "gatsby-transformer-sharp": "^2.4.3",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "babel-jest": "^25.5.1",
     "babel-preset-gatsby": "^0.4.0",
+    "cross-env": "^7.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.5.4",
     "prettier": "^1.19.1",
@@ -53,7 +55,8 @@
     "clean": "gatsby clean",
     "seed": "node src/scripts/seed.js",
     "seed:build": "npm run seed && npm run build",
-    "test": "jest"
+    "test": "jest",
+    "analyze": "cross-env ANALYZE_BUNDLE_SIZE=true gatsby build"
   },
   "repository": {
     "type": "git",
