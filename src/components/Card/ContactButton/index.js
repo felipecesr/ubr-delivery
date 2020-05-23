@@ -8,7 +8,7 @@ const ContactButton = ({ link, icon, children }) => (
     <S.ContactButtonIcon icon={icon}>
       {icon === "phone" ? <Phone /> : <Whatsapp />}
     </S.ContactButtonIcon>
-    <span>{children}</span>
+    <S.ContactButtonText>{children}</S.ContactButtonText>
   </S.ContactButton>
 )
 
