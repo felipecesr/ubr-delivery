@@ -14,14 +14,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String!
       phone: [String]
       whatsapp: [String]
-      openingHours: [WorkDay]
+      openingHours: WeekDay
       categories: [CategoryJson] @link(by: "slug")
     }
 
-    type WorkDay @dontInfer {
-      dayOfWeek: [String!]!
-      opens: String!
-      closes: String!
+    type WeekDay @dontInfer {
+      monday: [Float],
+      tuesday: [Float],
+      wednesday: [Float],
+      thursday: [Float],
+      friday: [Float],
+      saturday: [Float],
+      sunday: [Float]
     }
   `
 

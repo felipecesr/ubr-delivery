@@ -1,7 +1,8 @@
 require("dotenv").config()
 const fetch = require("node-fetch")
 const fs = require("fs")
-const { makeSlug, getUnique, openingHours } = require("./utils")
+const { makeSlug, getUnique } = require("./utils")
+const { openingHours } = require("./opening-hours")
 
 const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${process.env.GOOGLE_SHEET_ID}/1/public/values?alt=json`
 
@@ -44,7 +45,11 @@ async function getSheet(url) {
         whatsapp: item.gsx$informeocontatoparawhatsapp.$t
           .split("/")
           .map(item => item.replace("-", "")),
-        openingHours,
+        openingHours: openingHours(
+          item.gsx$semana.$t,
+          item.gsx$sabado.$t,
+          item.gsx$domingo.$t
+        ),
         categories: item.gsx$escolhaacategoria.$t
           .split(", ")
           .map(cat => makeSlug(cat)),
