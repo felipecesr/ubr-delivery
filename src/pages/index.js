@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="UBR Delivery" />
+      <SEO title="Home" lang="pt-br" />
       <Hero />
       <Container>
         <List categories={allCategoryJson} />
