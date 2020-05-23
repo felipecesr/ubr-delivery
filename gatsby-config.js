@@ -12,6 +12,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`source sans pro\:400,700`],
+        display: "swap",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

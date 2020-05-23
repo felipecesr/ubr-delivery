@@ -82,7 +82,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: var(--body-bg);
     color: var(--primary-color);
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 
   ol,
