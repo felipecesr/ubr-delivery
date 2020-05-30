@@ -24,4 +24,4 @@ List.defaultProps = {
   categories: [],
 }
 
-export { List }
+export default List

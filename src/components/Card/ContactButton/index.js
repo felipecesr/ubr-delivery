@@ -12,4 +12,4 @@ const ContactButton = ({ link, icon, children }) => (
   </S.ContactButton>
 )
 
-export { ContactButton }
+export default ContactButton

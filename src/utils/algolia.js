@@ -6,6 +6,15 @@ const commerceQuery = `{
         name
         phone
         whatsapp
+        openingHours {
+          monday
+          tuesday
+          wednesday
+          thursday
+          friday
+          saturday
+          sunday
+        }
         categories {
           name
         }
@@ -15,13 +24,18 @@ const commerceQuery = `{
 }`
 
 const flatten = arr =>
-  arr.map(({ node: { objectID, name, phone, whatsapp, categories } }) => ({
-    objectID,
-    name,
-    phone,
-    whatsapp,
-    categories: categories.map(category => category.name),
-  }))
+  arr.map(
+    ({
+      node: { objectID, name, phone, whatsapp, openingHours, categories },
+    }) => ({
+      objectID,
+      name,
+      phone,
+      whatsapp,
+      openingHours,
+      categories: categories.map(category => category.name),
+    })
+  )
 
 const queries = [
   {

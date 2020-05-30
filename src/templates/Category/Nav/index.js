@@ -17,4 +17,4 @@ Nav.propTypes = {
   name: PropTypes.string.isRequired,
 }
 
-export { Nav }
+export default Nav

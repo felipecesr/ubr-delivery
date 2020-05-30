@@ -8,4 +8,4 @@ const Logo = () => (
   </S.Logo>
 )
 
-export { Logo }
+export default Logo

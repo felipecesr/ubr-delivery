@@ -32,4 +32,4 @@ OpeningHour.defaultProps = {
   today: [],
 }
 
-export { OpeningHour }
+export default OpeningHour

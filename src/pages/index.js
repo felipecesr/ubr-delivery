@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import { Hero } from "../components/Hero"
-import { List } from "../components/List"
-import { Container } from "../components/Container/styles"
-import SEO from "../components/seo"
+import Layout from "@components/layout"
+import Hero from "@components/Hero"
+import List from "@components/List"
+import { Container } from "@components/Container/styles"
+import SEO from "@components/seo"
 
 const IndexPage = ({ data }) => {
   const { allCategoryJson } = data

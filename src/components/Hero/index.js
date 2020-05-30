@@ -1,7 +1,7 @@
 import React from "react"
 import * as S from "./styles"
 
-import { Logo } from "../Logo"
+import Logo from "@components/Logo"
 
 const Hero = () => (
   <S.HeroWrapper>
@@ -17,4 +17,4 @@ const Hero = () => (
   </S.HeroWrapper>
 )
 
-export { Hero }
+export default Hero

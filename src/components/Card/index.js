@@ -1,8 +1,8 @@
 import React, { useMemo } from "react"
 import * as S from "./styles"
 
-import { ContactButton } from "./ContactButton"
-import { OpeningHour } from "./OpeningHour"
+import ContactButton from "./ContactButton"
+import OpeningHour from "./OpeningHour"
 
 const Card = ({ name, phone, whatsapp, openingHours }) => {
   const today = useMemo(() => {
@@ -55,4 +55,4 @@ const Card = ({ name, phone, whatsapp, openingHours }) => {
   )
 }
 
-export { Card }
+export default Card
