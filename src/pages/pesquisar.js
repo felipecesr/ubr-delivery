@@ -17,7 +17,7 @@ const searchClient = algoliasearch(algolia.appId, algolia.searchOnlyApiKey)
 const SearchPage = () => {
   return (
     <Layout>
-      <SEO title="Pesquisar" />
+      <SEO title="Pesquisar" lang="pt-br" />
       <Nav name="Pesquisar" />
       <section>
         <InstantSearch
