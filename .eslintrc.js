@@ -7,6 +7,7 @@ module.exports = {
     "import/resolver": {
       alias: [
         ["@components", "./src/components"],
+        ["@layouts", "./src/layouts"],
         ["@pages", "./src/pages"],
         ["@templates", "./src/templates"],
         ["@styles", "./src/styles"],
