@@ -1,3 +1,4 @@
+const path = require("path")
 const queries = require("./src/utils/algolia")
 
 require("dotenv").config()
@@ -29,6 +30,15 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,6 +77,18 @@ module.exports = {
         disable: !process.env.ANALYZE_BUNDLE_SIZE,
         generateStatsFile: true,
         analyzerMode: "static",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": path.resolve(__dirname, "src/components"),
+          "@pages": path.resolve(__dirname, "src/pages"),
+          "@templates": path.resolve(__dirname, "src/templates"),
+          "@styles": path.resolve(__dirname, "src/styles"),
+        },
+        extensions: ["js"],
       },
     },
   ],
