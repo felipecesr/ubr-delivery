@@ -5,7 +5,7 @@ import Layout from "@components/layout"
 import Card from "@components/Card"
 import SEO from "@components/seo"
 import { ContainerCategory } from "@components/Container/styles"
-import Nav from "./Nav"
+import Nav from "@components/Nav"
 
 const Category = ({ data }) => {
   const [category] = data.allCategoryJson.edges

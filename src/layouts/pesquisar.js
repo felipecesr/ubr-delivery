@@ -1,78 +1,64 @@
-import styled, { keyframes } from "styled-components"
-import media from "styled-media-query"
+import React from "react"
+import styled from "styled-components"
 import { spacing } from "@styles/tokens"
+import GlobalStyles from "@styles/global"
+import MenuBar from "@components/MenuBar"
 
-const rotate = keyframes`
-  from {
-    transition: transform 0.3s;
-    transition-timing-function: ease-out;
-  }
+export default ({ children }) => (
+  <>
+    <GlobalStyles />
+    <Wrapper>{children}</Wrapper>
+    <MenuBar />
+  </>
+)
 
-  to {
-    transform: translate3d(100%,0,0);
-    transition-delay: 0.4s;
-  }
-`
-
-export const SearchWrapper = styled.section`
-  background-color: #fff;
-  padding: 3em;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    animation: ${rotate} 0.3s linear 0.2s forwards;
-  }
+const Wrapper = styled.main`
+  padding: 80px 1.5em;
 
   .ais-SearchBox-form {
     position: relative;
-    color: var(--color-text);
     width: 100%;
-    margin-bottom: ${spacing.xl};
-
-    transition: all 0.5s;
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    margin-bottom: ${spacing.xs};
+    background-color: var(--color-elements);
+    border-radius: 8px;
+    border: 0;
   }
 
   .ais-SearchBox-input {
-    font-family: inherit;
-    line-height: 1;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 0.05em 0;
-    color: #000;
+    font-size: 1em;
+    background: none;
+    padding: 1em 1.5em;
+    padding-left: 3.5em;
+    color: var(--color-text);
+    width: 100%;
     border: 0;
-    border-bottom: 2px solid;
-    font-size: 2em;
-    width: 90%;
-
-    ${media.greaterThan("small")`
-      font-size: 6vw;
-      width: 50%;
-    `}
   }
 
   .ais-SearchBox-submit {
-    background: none;
-    border: none;
-    left: 2.5em;
-    padding: 0;
     position: absolute;
     top: calc(50% - 8px);
-
-    svg {
-      height: 16px;
-      width: 16px;
-    }
+    left: 1.5em;
+    padding: 0;
+    border: 0;
+    height: 16px;
+    background: none;
   }
 
-  .ais-SearchBox-reset,
   .ais-SearchBox-submitIcon {
+    width: 16px;
+    height: auto;
+  }
+
+  .ais-SearchBox-reset {
     display: none;
+  }
+
+  .ais-Stats {
+    color: var(--color-text);
+    margin-bottom: ${spacing.lg};
+  }
+
+  .ais-Hits-item + .ais-Hits-item {
+    margin-top: ${spacing.md};
   }
 `

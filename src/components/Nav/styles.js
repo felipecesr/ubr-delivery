@@ -4,7 +4,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 export const NavWrapper = styled.header`
   height: 3.5rem;
   text-align: center;
-  position: relative;
   padding: 1em 0;
   background-color: #ffb800;
   margin-bottom: 24px;
@@ -14,6 +13,7 @@ export const NavWrapper = styled.header`
   left: 0;
   right: 0;
   top: 0;
+  z-index: 1;
 `
 
 export const NavTitle = styled.h2`

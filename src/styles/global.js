@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import reset from "./reset"
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -7,60 +8,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html,
-  body,
-  div,
-  span,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  blockquote,
-  pre,
-  a,
-  address,
-  cite,
-  code,
-  em,
-  img,
-  small,
-  strong,
-  dl,
-  dt,
-  dd,
-  ol,
-  ul,
-  li,
-  fieldset,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  figure,
-  figcaption,
-  footer,
-  header,
-  nav,
-  section {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
+  ${reset}
 
   :root {
     --icon-size: 24px;

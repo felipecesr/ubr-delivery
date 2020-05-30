@@ -14,7 +14,7 @@ const MenuBar = () => (
         cover
         to="/"
         direction="right"
-        bg="#ffffff"
+        bg="#ffb800"
         duration={0.6}
         title="Página inicial"
       >
@@ -25,7 +25,7 @@ const MenuBar = () => (
         cover
         to="/pesquisar"
         direction="left"
-        bg="#ffffff"
+        bg="#ffb800"
         duration={0.6}
         title="Pesquisar"
       >
