@@ -6,6 +6,7 @@ import Card from "@components/Card"
 import SEO from "@components/seo"
 import { ContainerCategory } from "@components/Container/styles"
 import Nav from "@components/Nav"
+import * as S from "./styled"
 
 const Category = ({ data }) => {
   const [category] = data.allCategoryJson.edges
@@ -16,7 +17,7 @@ const Category = ({ data }) => {
       <Nav name={category.node.name} />
       <ContainerCategory as="section">
         {category.node.commerces.map(item => (
-          <Card
+          <S.CardWrapper
             key={item.name}
             name={item.name}
             phone={item.phone}

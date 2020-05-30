@@ -4,7 +4,7 @@ import * as S from "./styles"
 import ContactButton from "./ContactButton"
 import OpeningHour from "./OpeningHour"
 
-const Card = ({ name, phone, whatsapp, openingHours }) => {
+const Card = ({ className, name, phone, whatsapp, openingHours }) => {
   const today = useMemo(() => {
     const weekdays = [
       "sunday",
@@ -23,7 +23,7 @@ const Card = ({ name, phone, whatsapp, openingHours }) => {
   }, [openingHours])
 
   return (
-    <S.Card>
+    <S.Card className={className}>
       <S.CardTitle>{name}</S.CardTitle>
       {!!today.length && <OpeningHour day={today} />}
       {phone.length && phone[0] && (
