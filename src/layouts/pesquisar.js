@@ -14,6 +14,8 @@ export default ({ children }) => (
 
 const Wrapper = styled.main`
   padding: 80px 1.5em;
+  max-width: 1140px;
+  margin: 0 auto;
 
   .ais-SearchBox-form {
     position: relative;
