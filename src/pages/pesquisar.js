@@ -3,8 +3,8 @@ import algoliasearch from "algoliasearch/lite"
 import { InstantSearch, SearchBox, Hits, Stats } from "react-instantsearch-dom"
 import Layout from "@components/layout"
 import SEO from "@components/seo"
-import Hit from "./Hit"
-import * as S from "./styled"
+import Hit from "@components/Hit"
+import * as S from "@layouts/pesquisar"
 
 const algolia = {
   appId: process.env.GATSBY_ALGOLIA_APP_ID,

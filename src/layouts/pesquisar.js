@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components"
 import media from "styled-media-query"
-import { spacing } from "../../styles/tokens"
+import { spacing } from "@styles/tokens"
 
 const rotate = keyframes`
   from {
