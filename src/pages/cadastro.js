@@ -31,7 +31,12 @@ class FormPage extends React.Component {
   render() {
     const { name, email, message } = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        onSubmit={this.handleSubmit}
+      >
         <p>
           <label>
             Your Name:{" "}
