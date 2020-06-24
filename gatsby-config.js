@@ -11,7 +11,12 @@ module.exports = {
     siteUrl: `https://ubr-delivery.netlify.app`,
   },
   plugins: [
-    `gatsby-source-api`,
+    {
+      resolve: `gatsby-source-api`,
+      options: {
+        googleSheetID: process.env.GOOGLE_SHEET_ID,
+      },
+    },
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     {

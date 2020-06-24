@@ -1,19 +1,18 @@
-require("dotenv").config()
 const fetch = require("node-fetch")
 const createNodeHelpers = require("gatsby-node-helpers").default
 
 const { processCommerce } = require("./utils/processor")
 const { makeSlug, getUnique } = require("./utils")
 
-const getData = async () => {
+const getData = async googleSheetID => {
   const response = await fetch(
-    `https://spreadsheets.google.com/feeds/list/${process.env.GOOGLE_SHEET_ID}/1/public/values?alt=json`
+    `https://spreadsheets.google.com/feeds/list/${googleSheetID}/1/public/values?alt=json`
   )
   const data = await response.json()
   return data
 }
 
-exports.sourceNodes = async ({ actions, createNodeId }) => {
+exports.sourceNodes = async ({ actions, createNodeId }, pluginOptions) => {
   const { createNode } = actions
   const { createNodeFactory } = createNodeHelpers({
     typePrefix: `UbrDelivery`,
@@ -22,7 +21,7 @@ exports.sourceNodes = async ({ actions, createNodeId }) => {
   const prepareCommerceNode = createNodeFactory(`Commerce`)
   const prepareCategoryNode = createNodeFactory(`Category`)
 
-  const data = await getData()
+  const data = await getData(pluginOptions.googleSheetID)
   const commerces = data.feed.entry.map(processCommerce)
 
   let categories = []
