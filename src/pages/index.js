@@ -8,14 +8,14 @@ import { Container } from "@components/Container/styles"
 import SEO from "@components/seo"
 
 const IndexPage = ({ data }) => {
-  const { allCategory } = data
+  const { allUbrDeliveryCategory } = data
 
   return (
     <Layout>
       <SEO title="Home" lang="pt-br" />
       <Hero />
       <Container>
-        <List categories={allCategory} />
+        <List categories={allUbrDeliveryCategory} />
       </Container>
     </Layout>
   )
@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query MyQuery {
-    allCategory {
+    allUbrDeliveryCategory {
       edges {
         node {
           name

@@ -1,5 +1,5 @@
 const commerceQuery = `{
-  commerces: allCommerce {
+  commerces: allUbrDeliveryCommerce {
     edges {
       node {
         objectID: slug

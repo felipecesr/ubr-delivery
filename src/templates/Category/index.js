@@ -8,7 +8,7 @@ import Nav from "@components/Nav"
 import * as S from "./styled"
 
 const Category = ({ data }) => {
-  const [category] = data.allCategory.edges
+  const [category] = data.allUbrDeliveryCategory.edges
 
   return (
     <Layout>
@@ -31,7 +31,7 @@ const Category = ({ data }) => {
 
 export const query = graphql`
   query Category($slug: String!) {
-    allCategory(filter: { slug: { eq: $slug } }) {
+    allUbrDeliveryCategory(filter: { slug: { eq: $slug } }) {
       edges {
         node {
           name

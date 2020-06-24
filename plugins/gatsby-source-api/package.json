@@ -1,5 +1,5 @@
 {
-  "name": "ubr-delivery-api",
+  "name": "gatsby-source-api",
   "version": "1.0.0",
   "description": "",
   "main": "gatsby-node.js",
@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gatsby-node-helpers": "^0.3.0"
+  }
 }

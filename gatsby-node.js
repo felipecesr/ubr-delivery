@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     {
-      allCategory {
+      allUbrDeliveryCategory {
         edges {
           node {
             slug
@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result =>
-    result.data.allCategory.edges.forEach(({ node }) => {
+    result.data.allUbrDeliveryCategory.edges.forEach(({ node }) => {
       createPage({
         path: node.slug,
         component: path.resolve("./src/templates/Category/index.js"),

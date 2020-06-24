@@ -11,7 +11,7 @@ module.exports = {
     siteUrl: `https://ubr-delivery.netlify.app`,
   },
   plugins: [
-    `ubr-delivery-api`,
+    `gatsby-source-api`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
     {

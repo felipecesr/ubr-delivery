@@ -1,24 +1,29 @@
 require("dotenv").config()
 const fetch = require("node-fetch")
+const createNodeHelpers = require("gatsby-node-helpers").default
 
 const { processCommerce } = require("./utils/processor")
 const { makeSlug, getUnique } = require("./utils")
 
-const COMMERCE_NODE_TYPE = `Commerce`
-const CATEGORY_NODE_TYPE = `Category`
-
-exports.sourceNodes = async ({
-  actions,
-  createContentDigest,
-  createNodeId,
-}) => {
-  const { createNode } = actions
-
+const getData = async () => {
   const response = await fetch(
     `https://spreadsheets.google.com/feeds/list/${process.env.GOOGLE_SHEET_ID}/1/public/values?alt=json`
   )
   const data = await response.json()
-  const commercesProccessed = data.feed.entry.map(processCommerce)
+  return data
+}
+
+exports.sourceNodes = async ({ actions, createNodeId }) => {
+  const { createNode } = actions
+  const { createNodeFactory } = createNodeHelpers({
+    typePrefix: `UbrDelivery`,
+  })
+
+  const prepareCommerceNode = createNodeFactory(`Commerce`)
+  const prepareCategoryNode = createNodeFactory(`Category`)
+
+  const data = await getData()
+  const commerces = data.feed.entry.map(processCommerce)
 
   let categories = []
 
@@ -33,39 +38,25 @@ exports.sourceNodes = async ({
 
   categories = getUnique(categories, "slug")
   categories.forEach(cat => {
-    const categoryCommerces = commercesProccessed
+    const categoryCommerces = commerces
       .filter(cmc => cmc.categories.includes(cat.slug))
       .map(cmc => cmc.slug)
     cat.commerces = categoryCommerces
   })
 
-  commercesProccessed.forEach(commerce =>
-    createNode({
-      ...commerce,
-      id: createNodeId(`${COMMERCE_NODE_TYPE}-${commerce.slug}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: COMMERCE_NODE_TYPE,
-        content: JSON.stringify(commerce),
-        contentDigest: createContentDigest(commerce),
-      },
+  const commerceNodes = commerces.map(commerce =>
+    prepareCommerceNode(commerce, {
+      id: createNodeId(commerce.slug),
+    })
+  )
+  const categoryNodes = categories.map(category =>
+    prepareCategoryNode(category, {
+      id: createNodeId(category.slug),
     })
   )
 
-  categories.forEach(category =>
-    createNode({
-      ...category,
-      id: createNodeId(`${CATEGORY_NODE_TYPE}-${category.slug}`), // hashes the inputs into an ID
-      parent: null,
-      children: [],
-      internal: {
-        type: CATEGORY_NODE_TYPE,
-        content: JSON.stringify(category),
-        contentDigest: createContentDigest(category),
-      },
-    })
-  )
+  commerceNodes.forEach(node => createNode(node))
+  categoryNodes.forEach(node => createNode(node))
 
   return
 }
@@ -73,19 +64,19 @@ exports.sourceNodes = async ({
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
-    type Category implements Node @dontInfer {
+    type UbrDeliveryCategory implements Node @dontInfer {
       slug: String!
       name: String!
-      commerces: [Commerce] @link(by: "slug")
+      commerces: [UbrDeliveryCommerce] @link(by: "slug")
     }
 
-    type Commerce implements Node @dontInfer {
+    type UbrDeliveryCommerce implements Node @dontInfer {
       slug: String!
       name: String!
       phone: [String]
       whatsapp: [String]
       openingHours: WeekDay
-      categories: [Category] @link(by: "slug")
+      categories: [UbrDeliveryCategory] @link(by: "slug")
     }
 
     type WeekDay @dontInfer {
