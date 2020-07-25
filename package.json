@@ -56,8 +56,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "seed": "node src/scripts/seed.js",
-    "seed:build": "npm run build",
     "test": "jest"
   },
   "repository": {
