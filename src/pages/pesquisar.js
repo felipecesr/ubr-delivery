@@ -5,6 +5,7 @@ import Layout from "@layouts/pesquisar"
 import SEO from "@components/seo"
 import Hit from "@components/Hit"
 import Nav from "@components/Nav"
+import AlgoliaLogo from "@components/AlgoliaLogo"
 
 const algolia = {
   appId: process.env.GATSBY_ALGOLIA_APP_ID,
@@ -42,6 +43,7 @@ const SearchPage = () => {
           />
           <Hits hitComponent={Hit} />
         </InstantSearch>
+        <AlgoliaLogo />
       </section>
     </Layout>
   )
