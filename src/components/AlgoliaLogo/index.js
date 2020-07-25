@@ -4,7 +4,7 @@ import * as S from "./styles"
 const AlgoliaLogo = () => (
   <S.AlgoliaWrapper>
     <S.AlgoliaTitle>
-      Powered by Algolia
+      Search by Algolia
       <S.AlgoliaLogo
         viewBox="0 0 448 512"
         aria-hidden="true"
