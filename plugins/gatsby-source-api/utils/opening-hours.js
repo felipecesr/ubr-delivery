@@ -10,7 +10,7 @@ module.exports.openingHours = function(weekdays, saturday, sunday) {
 
   function format(data) {
     if (!data) return []
-    const times = data.split(/[,-]/).map(parseTime)
+    const times = data.split(/[;-]/).map(parseTime)
 
     if (times.length > 2) {
       return [
@@ -23,12 +23,12 @@ module.exports.openingHours = function(weekdays, saturday, sunday) {
   }
 
   return [
+    sundayData,
     weekdaysData,
     weekdaysData,
     weekdaysData,
     weekdaysData,
     weekdaysData,
     saturdayData,
-    sundayData,
   ]
 }
