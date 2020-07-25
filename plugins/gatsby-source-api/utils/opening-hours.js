@@ -4,21 +4,31 @@ module.exports.openingHours = function(weekdays, saturday, sunday) {
   const sundayData = format(sunday)
 
   function parseTime(timeString) {
-    return parseFloat(timeString.replace(":", "."))
+    const [hours, minutes] = timeString.split(":")
+    return +minutes + +hours * 60
   }
 
   function format(data) {
     if (!data) return []
-    return data.split(/[,-]/).map(parseTime)
+    const times = data.split(/[,-]/).map(parseTime)
+
+    if (times.length > 2) {
+      return [
+        { open: times[0], close: times[1] },
+        { open: times[2], close: times[3] },
+      ]
+    }
+
+    return [{ open: times[0], close: times[1] }]
   }
 
-  return {
-    monday: weekdaysData,
-    tuesday: weekdaysData,
-    wednesday: weekdaysData,
-    thursday: weekdaysData,
-    friday: weekdaysData,
-    saturday: saturdayData,
-    sunday: sundayData,
-  }
+  return [
+    weekdaysData,
+    weekdaysData,
+    weekdaysData,
+    weekdaysData,
+    weekdaysData,
+    saturdayData,
+    sundayData,
+  ]
 }

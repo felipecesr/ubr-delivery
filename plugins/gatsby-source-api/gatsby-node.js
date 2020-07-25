@@ -74,18 +74,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String!
       phone: [String]
       whatsapp: [String]
-      openingHours: WeekDay
+      openingHours: [[WeekDay]]
       categories: [UbrDeliveryCategory] @link(by: "slug")
     }
 
     type WeekDay @dontInfer {
-      monday: [Float],
-      tuesday: [Float],
-      wednesday: [Float],
-      thursday: [Float],
-      friday: [Float],
-      saturday: [Float],
-      sunday: [Float]
+      open: Int
+      close: Int
     }
   `
 
