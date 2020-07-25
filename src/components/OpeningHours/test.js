@@ -101,3 +101,37 @@ test("renders hours to correct day", () => {
 
   expect(screen.getByText(/^fechado - abre às 10:00$/i)).toBeInTheDocument()
 })
+
+test("renders reopen text and close time", () => {
+  const testData = new Array(6)
+  testData.push([
+    {
+      open: 420,
+      close: 780,
+    },
+    {
+      open: 870,
+      close: 1200,
+    },
+  ])
+
+  global.Date.now = jest.fn(() => new Date("2020-07-25T17:48:00").getTime())
+
+  render(<OpeningHours weekRanges={testData} />)
+
+  expect(screen.getByText(/^aberto - fecha às 20:00$/i)).toBeInTheDocument()
+})
+
+// test('renders open monday if last is null')
+
+test("renders fallback when data is empty", () => {
+  const testData = [[]]
+
+  global.Date.now = jest.fn(() => new Date("1995-12-17T14:24:00").getTime())
+
+  render(<OpeningHours weekRanges={testData} />)
+
+  expect(
+    screen.getByText(/^não há informações de horários$/i)
+  ).toBeInTheDocument()
+})

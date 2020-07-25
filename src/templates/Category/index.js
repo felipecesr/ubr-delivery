@@ -41,13 +41,8 @@ export const query = graphql`
             phone
             whatsapp
             openingHours {
-              monday
-              tuesday
-              wednesday
-              thursday
-              friday
-              saturday
-              sunday
+              close
+              open
             }
           }
         }

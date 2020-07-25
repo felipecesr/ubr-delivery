@@ -22,10 +22,22 @@ const OpeningHours = ({ weekRanges }) => {
     return date.getMinutes() + date.getHours() * 60
   }, [])
 
+  if (today.length === 0) {
+    return <p>não há informações de horários</p>
+  }
+
   if (currentHour < today[0].close) {
     let text = `Aberto - Fecha às ${timeConvert(today[0].close)}`
     if (today.length > 1) text += ` - Reabre às ${timeConvert(today[1].open)}`
     return <p>{text}</p>
+  }
+
+  if (
+    !!today[1] &&
+    currentHour > today[1].open &&
+    currentHour < today[1].close
+  ) {
+    return <p>Aberto - Fecha às {timeConvert(today[1].close)}</p>
   }
 
   return (
