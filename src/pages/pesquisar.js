@@ -23,6 +23,10 @@ const SearchPage = () => {
         <InstantSearch
           searchClient={searchClient}
           indexName={algolia.indexName}
+          onSearchStateChange={searchState => {
+            const page = `?query=${searchState.query}`
+            window.ga("send", "pageView", page)
+          }}
         >
           <SearchBox
             translations={{
