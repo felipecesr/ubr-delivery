@@ -87,19 +87,27 @@ test("renders close text and reopen time", () => {
 })
 
 test("renders hours to correct day", () => {
-  const testData = new Array(6)
-  testData.push([
+  const testData = new Array(7)
+  testData[5] = [
+    {
+      open: 420,
+      close: 840,
+    },
+  ]
+  testData[6] = [
     {
       open: 600,
       close: 840,
     },
-  ])
+  ]
 
-  global.Date.now = jest.fn(() => new Date("2020-07-25T14:24:00").getTime())
+  global.Date.now = jest.fn(() =>
+    new Date("2020-08-01T01:25:10.369Z").getTime()
+  )
 
   render(<OpeningHours weekRanges={testData} />)
 
-  expect(screen.getByText(/^fechado - abre às 10:00$/i)).toBeInTheDocument()
+  expect(screen.getByText(/^fechado - abre às 07:00$/i)).toBeInTheDocument()
 })
 
 test("renders reopen text and close time", () => {
@@ -122,7 +130,82 @@ test("renders reopen text and close time", () => {
   expect(screen.getByText(/^aberto - fecha às 20:00$/i)).toBeInTheDocument()
 })
 
-// test('renders open monday if last is null')
+test("exibe fechado e abre domingo", () => {
+  const testData = new Array(7).map(item => [])
+  testData[0] = [
+    {
+      open: 450,
+      close: 780,
+    },
+    {
+      open: 870,
+      close: 1200,
+    },
+  ]
+  testData[6] = [
+    {
+      open: 420,
+      close: 1320,
+    },
+  ]
+
+  global.Date.now = jest.fn(() =>
+    new Date("2020-08-02T01:25:10.369Z").getTime()
+  )
+
+  render(<OpeningHours weekRanges={testData} />)
+
+  expect(screen.getByText(/^fechado - abre às 07:30$/i)).toBeInTheDocument()
+})
+
+test("exibe fechado e abre só na segunda", () => {
+  const testData = new Array(7).map(item => [])
+  testData[0] = []
+  testData[1] = [
+    {
+      open: 450,
+      close: 780,
+    },
+    {
+      open: 870,
+      close: 1200,
+    },
+  ]
+  testData[6] = [
+    {
+      open: 420,
+      close: 1320,
+    },
+  ]
+
+  global.Date.now = jest.fn(() =>
+    new Date("2020-08-02T01:25:10.369Z").getTime()
+  )
+
+  render(<OpeningHours weekRanges={testData} />)
+
+  expect(
+    screen.getByText(/^fechado - abre segunda às 07:30$/i)
+  ).toBeInTheDocument()
+})
+
+test("abre as 12 e fecha as 18", () => {
+  const testData = new Array(7).map(item => [])
+  testData[6] = [
+    {
+      open: 720,
+      close: 1080,
+    },
+  ]
+
+  global.Date.now = jest.fn(() =>
+    new Date("2020-08-01T08:25:52.650Z").getTime()
+  )
+
+  render(<OpeningHours weekRanges={testData} />)
+
+  expect(screen.getByText(/^fechado - abre às 12:00$/i)).toBeInTheDocument()
+})
 
 test("renders fallback when data is empty", () => {
   const testData = [[]]

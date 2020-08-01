@@ -22,8 +22,12 @@ const OpeningHours = ({ weekRanges }) => {
     return date.getMinutes() + date.getHours() * 60
   }, [])
 
-  if (today.length === 0) {
+  if (today === undefined || today.length === 0) {
     return <p>não há informações de horários</p>
+  }
+
+  if (currentHour < today[0].open) {
+    return <p>Fechado - Abre às {timeConvert(today[0].open)}</p>
   }
 
   if (currentHour < today[0].close) {
@@ -38,6 +42,22 @@ const OpeningHours = ({ weekRanges }) => {
     currentHour < today[1].close
   ) {
     return <p>Aberto - Fecha às {timeConvert(today[1].close)}</p>
+  }
+
+  const lastHour = today.length
+
+  if (!!!weekRanges[dayIndex + 1] && !weekRanges[0].length) {
+    if (currentHour > today[lastHour - 1].close) {
+      return (
+        <p>Fechado - Abre segunda às {timeConvert(weekRanges[1][0].open)}</p>
+      )
+    }
+  }
+
+  if (!!!weekRanges[dayIndex + 1] && weekRanges[0].length) {
+    if (currentHour > today[lastHour - 1].close) {
+      return <p>Fechado - Abre às {timeConvert(weekRanges[0][0].open)}</p>
+    }
   }
 
   return (
