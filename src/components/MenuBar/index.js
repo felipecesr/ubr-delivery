@@ -27,9 +27,8 @@ const MenuBar = () => (
         direction="left"
         bg="#ffb800"
         duration={0.6}
-        title="Pesquisar"
       >
-        <Search />
+        <Search title="Pesquisar" />
       </S.MenuBarItem>
       {/* <S.MenuBarItem>
         <Grid />

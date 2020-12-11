@@ -24,6 +24,7 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",
     "gsap": "^3.2.6",
+    "is-ci-cli": "^2.1.2",
     "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -35,19 +36,22 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.2",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.7",
     "babel-jest": "^25.5.1",
     "babel-preset-gatsby": "^0.4.0",
     "cross-env": "^7.0.2",
-    "cypress": "^6.0.1",
+    "cypress": "^6.1.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-cypress": "^2.11.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.5.4",
+    "netlify-plugin-cypress": "^1.4.1",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.6"
   },
   "keywords": [
     "gatsby"
@@ -61,7 +65,12 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "cy:open": "cypress open"
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:e2e:run": "start-server-and-test start http://localhost:8000 cy:run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:8000 cy:open",
+    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
+    "pretest:e2e:run": "npm run build"
   },
   "repository": {
     "type": "git",
