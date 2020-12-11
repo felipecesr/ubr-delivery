@@ -7,24 +7,25 @@
   "dependencies": {
     "algoliasearch": "^4.2.0",
     "dotenv": "^8.2.0",
-    "gatsby": "^2.21.24",
+    "gatsby": "^2.27.0",
     "gatsby-image": "^2.3.1",
     "gatsby-node-helpers": "^0.3.0",
-    "gatsby-plugin-algolia": "^0.11.0",
+    "gatsby-plugin-algolia": "^0.0.4",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-tagmanager": "^2.2.1",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
     "gatsby-plugin-react-helmet": "^3.2.1",
-    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-plugin-sharp": "^2.9.0",
     "gatsby-plugin-sitemap": "^2.3.1",
     "gatsby-plugin-styled-components": "^3.2.1",
     "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",
     "gsap": "^3.2.6",
-    "node-fetch": "^2.6.0",
+    "is-ci-cli": "^2.1.2",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -35,15 +36,22 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^7.0.2",
+    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/react": "^10.4.7",
     "babel-jest": "^25.5.1",
     "babel-preset-gatsby": "^0.4.0",
     "cross-env": "^7.0.2",
+    "cypress": "^6.1.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-cypress": "^2.11.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.5.4",
+    "netlify-plugin-cypress": "^1.4.1",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.6"
   },
   "keywords": [
     "gatsby"
@@ -56,7 +64,13 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:e2e:run": "start-server-and-test start http://localhost:8000 cy:run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:8000 cy:open",
+    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
+    "pretest:e2e:run": "npm run build"
   },
   "repository": {
     "type": "git",

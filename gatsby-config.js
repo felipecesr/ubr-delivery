@@ -57,14 +57,14 @@ module.exports = {
         icon: `src/images/site-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: process.env.GOOGLE_TAG_MANAGER,
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: process.env.GOOGLE_TAG_MANAGER,
+    //     includeInDevelopment: false,
+    //     defaultDataLayer: { platform: "gatsby" },
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

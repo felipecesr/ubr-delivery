@@ -1,27 +1,15 @@
-const path = require("path")
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
-  return graphql(`
-    {
-      allUbrDeliveryCategory {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
-  `).then(result =>
-    result.data.allUbrDeliveryCategory.edges.forEach(({ node }) => {
-      createPage({
-        path: node.slug,
-        component: path.resolve("./src/templates/Category/index.js"),
-        context: {
-          slug: node.slug,
-        },
-      })
+  if (node.internal.type === `UbrDeliveryCategory`) {
+    const value = createFilePath({ node, getNode })
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
     })
-  )
+  }
 }
