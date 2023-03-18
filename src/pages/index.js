@@ -13,6 +13,19 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" lang="pt-br" />
+      <ins
+        class="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-5280470753698453"
+        data-ad-slot="7768167977"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: " (adsbygoogle = window.adsbygoogle || []).push({});",
+        }}
+      />
       <Hero />
       <Container>
         <List categories={allUbrDeliveryCategory} />
