@@ -15,6 +15,7 @@ module.exports = {
       resolve: `gatsby-source-api`,
       options: {
         googleSheetID: process.env.GOOGLE_SHEET_ID,
+        googleSheetAPIKey: process.env.GOOGLE_SHEET_API_KEY,
       },
     },
     `gatsby-plugin-transition-link`,

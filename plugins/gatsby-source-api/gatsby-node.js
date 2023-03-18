@@ -4,12 +4,14 @@ const createNodeHelpers = require("gatsby-node-helpers").default
 const { processCommerce } = require("./utils/processor")
 const { makeSlug, getUnique } = require("./utils")
 
-const getData = async googleSheetID => {
+const getData = async (googleSheetID, googleSheetAPIKey) => {
   const response = await fetch(
-    `https://spreadsheets.google.com/feeds/list/${googleSheetID}/1/public/values?alt=json`
+    `https://sheets.googleapis.com/v4/spreadsheets/${googleSheetID}/values/Respostas%20do%20Formul%C3%A1rio%201?alt=json&key=${googleSheetAPIKey}`
   )
   const data = await response.json()
-  return data
+  data.values.shift()
+  data.values.pop()
+  return data.values
 }
 
 exports.sourceNodes = async ({ actions, createNodeId }, pluginOptions) => {
@@ -21,13 +23,16 @@ exports.sourceNodes = async ({ actions, createNodeId }, pluginOptions) => {
   const prepareCommerceNode = createNodeFactory(`Commerce`)
   const prepareCategoryNode = createNodeFactory(`Category`)
 
-  const data = await getData(pluginOptions.googleSheetID)
-  const commerces = data.feed.entry.map(processCommerce)
+  const data = await getData(
+    pluginOptions.googleSheetID,
+    pluginOptions.googleSheetAPIKey
+  )
+  const commerces = data.map(processCommerce)
 
   let categories = []
 
-  data.feed.entry.forEach(item => {
-    item.gsx$escolhaacategoria.$t.split(", ").forEach(name => {
+  data.forEach(item => {
+    item[2].split(", ").forEach(name => {
       categories.push({
         name,
         slug: makeSlug(name),
