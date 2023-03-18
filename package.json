@@ -64,5 +64,8 @@
   },
   "bugs": {
     "url": "https://github.com/felipecesr/ubr-delivery/issues"
+  },
+  "volta": {
+    "node": "10.24.1"
   }
 }
